@@ -1,18 +1,23 @@
-#include <Arduino.h>
+#include <avr/wdt.h>
+#include "DeviceDriverSet_xxx0.h"
+#include "ApplicationFunctionSet_xxx0.cpp"
 
-// put function declarations here:
-int myFunction(int, int);
+DeviceDriverSet_Motor AppMotor;
+Application_xxx Application_ConquerorCarxxx0;
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  AppMotor.DeviceDriverSet_Motor_Init();
+  delay(2000);
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  for (Application_ConquerorCarxxx0.Motion_Control = 0; Application_ConquerorCarxxx0.Motion_Control < 2; Application_ConquerorCarxxx0.Motion_Control = Application_ConquerorCarxxx0.Motion_Control + 1)
+  {
+    ApplicationFunctionSet_ConquerorCarMotionControl(Application_ConquerorCarxxx0.Motion_Control /*direction*/, 255 /*speed*/);
+    delay(1000);
+  }
+
+
 }
