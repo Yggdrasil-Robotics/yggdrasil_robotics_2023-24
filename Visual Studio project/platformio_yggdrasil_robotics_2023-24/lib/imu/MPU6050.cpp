@@ -1,4 +1,5 @@
 #include "MPU6050.h"
+
 MPU6050::MPU6050() { devAddr = MPU6050_DEFAULT_ADDRESS; }
 MPU6050::MPU6050(uint8_t address) { devAddr = address; }
 void MPU6050::initialize() {

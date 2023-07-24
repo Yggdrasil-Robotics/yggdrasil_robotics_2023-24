@@ -1,6 +1,6 @@
 #ifndef _MPU6050_H_
 #define _MPU6050_H_
-#include "I2Cdev.h"
+#include "../i2cdev/I2Cdev.h"
 #define MPU6050_ADDRESS_AD0_LOW                 0x68
 #define MPU6050_ADDRESS_AD0_HIGH                0x69
 #define MPU6050_DEFAULT_ADDRESS                 MPU6050_ADDRESS_AD0_LOW
