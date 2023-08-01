@@ -1,9 +1,7 @@
 #include <avr/wdt.h>
 #include "DeviceDriverSet_xxx0.h"
-#include "ApplicationFunctionSet_xxx0.cpp"
 
 DeviceDriverSet_Motor AppMotor;
-Application_xxx Application_ConquerorCarxxx0;
 
 void setup() {
   AppMotor.DeviceDriverSet_Motor_Init();
@@ -11,9 +9,6 @@ void setup() {
 }
 
 void loop() {
-  for (Application_ConquerorCarxxx0.Motion_Control = 0; Application_ConquerorCarxxx0.Motion_Control < 2;
-  Application_ConquerorCarxxx0.Motion_Control = Application_ConquerorCarxxx0.Motion_Control + 1) {
-    ApplicationFunctionSet_ConquerorCarMotionControl(Application_ConquerorCarxxx0.Motion_Control /*direction*/, 255 /*speed*/);
-    delay(8000);
-  }
+  AppMotor.DeviceDriverSet_Motor_control(1, 100, 1, 100);
+  delay(8000);
 }

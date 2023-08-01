@@ -10,26 +10,20 @@ class DeviceDriverSet_Motor {
   #if _Test_DeviceDriverSet
     void DeviceDriverSet_Motor_Test(void);
   #endif
-    void DeviceDriverSet_Motor_control(boolean direction_A, uint8_t speed_A,
-    boolean direction_B, uint8_t speed_B, boolean controlED);
+    void DeviceDriverSet_Motor_control(uint8_t rightDirection, uint8_t rightSpeed, boolean leftDirection, uint8_t leftSpeed);
 
   private:
-  #define PIN_Motor_PWMA 5
-  #define PIN_Motor_PWMB 6
-  #define PIN_Motor_BIN_1 8
-  #define PIN_Motor_AIN_1 7
-  #define PIN_Motor_STBY 3
+  #define rightMotorsSpeedPin  5
+  #define leftMotorsSpeedPin   6
+  #define leftMotorsDirection  8 //HIGH to move forward, LOW to move backward
+  #define rightMotorsDirection 7 //HIGH to move forward, LOW to move backward
+  #define allMotorsStandBy     3 //HIGH to work, LOW to stop
 
   public:
-  #define speed_Max 255
+  #define maxSpeed 255
   #define direction_just true
   #define direction_back false
   #define direction_void 3
-
-  #define Duration_enable true
-  #define Duration_disable false
-  #define control_enable true
-  #define control_disable false
 };
 
 #endif

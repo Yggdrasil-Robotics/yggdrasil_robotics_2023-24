@@ -2,64 +2,47 @@
 
 /*Motor control*/
 void DeviceDriverSet_Motor::DeviceDriverSet_Motor_Init(void) {
-  pinMode(PIN_Motor_PWMA, OUTPUT);
-  pinMode(PIN_Motor_PWMB, OUTPUT);
-  pinMode(PIN_Motor_AIN_1, OUTPUT);
-  pinMode(PIN_Motor_BIN_1, OUTPUT);
-  pinMode(PIN_Motor_STBY, OUTPUT);
+  pinMode(rightMotorsSpeedPin, OUTPUT);
+  pinMode(leftMotorsSpeedPin, OUTPUT);
+  pinMode(rightMotorsDirection, OUTPUT);
+  pinMode(leftMotorsDirection, OUTPUT);
+  pinMode(allMotorsStandBy, OUTPUT);
 }
 
+void DeviceDriverSet_Motor::DeviceDriverSet_Motor_control(uint8_t rightDirection, uint8_t rightSpeed, boolean leftDirection, uint8_t leftSpeed) {
+  digitalWrite(allMotorsStandBy, HIGH);
+  
+  switch (rightDirection) {
+    case 1:
+      digitalWrite(rightMotorsDirection, HIGH);
+      analogWrite(rightMotorsSpeedPin, rightSpeed);
+      break;
 
-void DeviceDriverSet_Motor::DeviceDriverSet_Motor_control(boolean direction_A, uint8_t speed_A,
-boolean direction_B, uint8_t speed_B, boolean controlED) {
-  if (controlED == control_enable) {
-    digitalWrite(PIN_Motor_STBY, HIGH);
-    
-    switch (direction_A) {
-      case direction_just:
-        digitalWrite(PIN_Motor_AIN_1, HIGH);
-        analogWrite(PIN_Motor_PWMA, speed_A);
-        break;
+    case 2:
+      digitalWrite(rightMotorsDirection, LOW);
+      analogWrite(rightMotorsSpeedPin, rightSpeed);
+      break;
 
-      case direction_back:
-        digitalWrite(PIN_Motor_AIN_1, LOW);
-        analogWrite(PIN_Motor_PWMA, speed_A);
-        break;
+    default:
+      analogWrite(rightMotorsSpeedPin, 0);
+      digitalWrite(allMotorsStandBy, LOW);
+      break;
+  }
 
-      case direction_void:
-        analogWrite(PIN_Motor_PWMA, 0);
-        digitalWrite(PIN_Motor_STBY, LOW);
-        break;
+  switch (leftDirection) {
+    case 1:
+      digitalWrite(leftMotorsDirection, HIGH);
+      analogWrite(leftMotorsSpeedPin, leftSpeed);
+      break;
 
-      default:
-        analogWrite(PIN_Motor_PWMA, 0);
-        digitalWrite(PIN_Motor_STBY, LOW);
-        break;
-    }
+    case 2:
+      digitalWrite(leftMotorsDirection, LOW);
+      analogWrite(leftMotorsSpeedPin, leftSpeed);
+      break;
 
-    switch (direction_B) {
-      case direction_just:
-        digitalWrite(PIN_Motor_BIN_1, HIGH);
-        analogWrite(PIN_Motor_PWMB, speed_B);
-        break;
-
-      case direction_back:
-        digitalWrite(PIN_Motor_BIN_1, LOW);
-        analogWrite(PIN_Motor_PWMB, speed_B);
-        break;
-
-      case direction_void:
-        analogWrite(PIN_Motor_PWMB, 0);
-        digitalWrite(PIN_Motor_STBY, LOW);
-        break;
-
-      default:
-        analogWrite(PIN_Motor_PWMB, 0);
-        digitalWrite(PIN_Motor_STBY, LOW);
-        break;
-    }
-  } else {
-    digitalWrite(PIN_Motor_STBY, LOW);
-    return;
+    default:
+      analogWrite(leftMotorsSpeedPin, 0);
+      digitalWrite(allMotorsStandBy, LOW);
+      break;
   }
 }
