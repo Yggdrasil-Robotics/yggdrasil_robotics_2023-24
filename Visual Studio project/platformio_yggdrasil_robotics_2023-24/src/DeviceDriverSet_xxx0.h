@@ -10,7 +10,7 @@ class DeviceDriverSet_Motor {
   #if _Test_DeviceDriverSet
     void DeviceDriverSet_Motor_Test(void);
   #endif
-    void DeviceDriverSet_Motor_control(uint8_t rightDirection, uint8_t rightSpeed, boolean leftDirection, uint8_t leftSpeed);
+    void DeviceDriverSet_Motor_control(uint8_t rightDirection, uint8_t rightSpeed, uint8_t leftDirection, uint8_t leftSpeed);
 
   private:
   #define rightMotorsSpeedPin  5

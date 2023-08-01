@@ -9,7 +9,7 @@ void DeviceDriverSet_Motor::DeviceDriverSet_Motor_Init(void) {
   pinMode(allMotorsStandBy, OUTPUT);
 }
 
-void DeviceDriverSet_Motor::DeviceDriverSet_Motor_control(uint8_t rightDirection, uint8_t rightSpeed, boolean leftDirection, uint8_t leftSpeed) {
+void DeviceDriverSet_Motor::DeviceDriverSet_Motor_control(uint8_t rightDirection, uint8_t rightSpeed, uint8_t leftDirection, uint8_t leftSpeed) {
   digitalWrite(allMotorsStandBy, HIGH);
   
   switch (rightDirection) {
