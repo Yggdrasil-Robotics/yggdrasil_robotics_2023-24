@@ -1,14 +1,13 @@
-#include <avr/wdt.h>
-#include "DeviceDriverSet_xxx0.h"
+#include "motorControl/motorControl.hpp"
 
-DeviceDriverSet_Motor AppMotor;
+motorController motorControl;
 
 void setup() {
-  AppMotor.DeviceDriverSet_Motor_Init();
-  delay(2000);
+  motorControl.DeviceDriverSetMotorInit();
 }
 
 void loop() {
-  AppMotor.DeviceDriverSet_Motor_control(1, 100, 1, 100);
-  delay(8000);
+  motorControl.allMotorsRunning(true);
+  motorControl.leftMotorsForward(true, 1);
+  motorControl.rightMotorsForward(false, 1);
 }
