@@ -1,22 +1,19 @@
-#include "DeviceDriverSet_xxx0.h"
+#include "lineTrackingHeaders/lineTrackingHeader.hpp"
 
-/*ITR20001 Detection*/
-bool DeviceDriverSet_ITR20001::DeviceDriverSet_ITR20001_Init(void)
-{
-  pinMode(PIN_ITR20001xxxL, INPUT);
-  pinMode(PIN_ITR20001xxxM, INPUT);
-  pinMode(PIN_ITR20001xxxR, INPUT);
-  return false;
+bool lineTracker::lineTrackerInit(void) {
+  pinMode(leftTrackingCameraPin, INPUT);
+  pinMode(mediumTrackingCameraPin, INPUT);
+  pinMode(rightTrackingCameraPin, INPUT);
 }
-float DeviceDriverSet_ITR20001::DeviceDriverSet_ITR20001_getAnaloguexxx_L(void)
-{
-  return analogRead(PIN_ITR20001xxxL);
+
+float lineTracker::getLeftTrackingCameraMeasure(void) {
+  return analogRead(leftTrackingCameraPin);
 }
-float DeviceDriverSet_ITR20001::DeviceDriverSet_ITR20001_getAnaloguexxx_M(void)
-{
-  return analogRead(PIN_ITR20001xxxM);
+
+float lineTracker::getMediumTrackingCameraMeasure(void) {
+  return analogRead(mediumTrackingCameraPin);
 }
-float DeviceDriverSet_ITR20001::DeviceDriverSet_ITR20001_getAnaloguexxx_R(void)
-{
-  return analogRead(PIN_ITR20001xxxR);
+
+float lineTracker::getRightTrackingCameraMeasure(void) {
+  return analogRead(rightTrackingCameraPin);
 }

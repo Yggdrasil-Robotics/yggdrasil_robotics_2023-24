@@ -1,4 +1,4 @@
-#include "motorHeader/motorHeader.hpp"
+#include "motorHeaders/motorHeader.hpp"
 
 void motorController::DeviceDriverSetMotorInit(void) {
   pinMode(rightMotorsSpeedPin, OUTPUT);

@@ -1,7 +1,7 @@
 #include "I2Cdev.h"
 #include "MPU6050.h"
 #include "Wire.h"
-#include "imuHeader/imuHeader.hpp"
+#include "imuHeaders/imuHeader.hpp"
 #include <stdio.h>
 #include <math.h>
 
