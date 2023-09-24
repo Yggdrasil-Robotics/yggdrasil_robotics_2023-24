@@ -9,7 +9,7 @@ class MPU6050_getdata {
     long gyroscopeOffset = 0;
     
   public:
-    bool MPU6050Init(void);
-    void MPU6050Calibration(void);
+    bool MPU6050Init();
+    void MPU6050Calibration();
     float MPU6050GetEulerAngles();
 };
