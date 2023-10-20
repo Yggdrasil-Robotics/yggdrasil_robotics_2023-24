@@ -6,6 +6,7 @@ void setup() {
   motorControl.DeviceDriverSetMotorInit();
 }
 
+//Prueba
 void loop() {
   motorControl.allMotorsRunning(true);
   motorControl.leftMotorsForward(true, 1);
