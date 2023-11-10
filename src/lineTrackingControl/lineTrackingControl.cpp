@@ -1,6 +1,6 @@
 #include "lineTrackingHeaders/lineTrackingHeader.hpp"
 
-bool lineTracker::lineTrackerInit(void) {
+void lineTracker::lineTrackerInit(void) {
   pinMode(leftTrackingCameraPin, INPUT);
   pinMode(mediumTrackingCameraPin, INPUT);
   pinMode(rightTrackingCameraPin, INPUT);

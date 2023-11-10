@@ -7,7 +7,7 @@ class lineTracker {
     #define rightTrackingCameraPin A0
 
   public:
-    bool lineTrackerInit(void);
+    void lineTrackerInit(void);
     float getLeftTrackingCameraMeasure(void);
     float getMediumTrackingCameraMeasure(void);
     float getRightTrackingCameraMeasure(void);
