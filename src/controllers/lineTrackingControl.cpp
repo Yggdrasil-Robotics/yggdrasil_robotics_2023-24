@@ -1,19 +1,23 @@
-#include "lineTrackingHeaders/lineTrackingHeader.hpp"
+#include "lineTrackingHeader.hpp"
 
-void lineTracker::lineTrackerInit(void) {
+void lineTracker::lineTrackerInit()
+{
   pinMode(leftTrackingCameraPin, INPUT);
   pinMode(mediumTrackingCameraPin, INPUT);
   pinMode(rightTrackingCameraPin, INPUT);
 }
 
-float lineTracker::getLeftTrackingCameraMeasure(void) {
+float lineTracker::getLeftTrackingCameraMeasure()
+{
   return analogRead(leftTrackingCameraPin);
 }
 
-float lineTracker::getMediumTrackingCameraMeasure(void) {
+float lineTracker::getMediumTrackingCameraMeasure()
+{
   return analogRead(mediumTrackingCameraPin);
 }
 
-float lineTracker::getRightTrackingCameraMeasure(void) {
+float lineTracker::getRightTrackingCameraMeasure()
+{
   return analogRead(rightTrackingCameraPin);
 }

@@ -1,14 +1,17 @@
-#include "motorHeaders/motorHeader.hpp"
+#include "motorHeader.hpp"
 
 motorController motorControl;
 
-void setup() {
+void setup()
+{
   motorControl.DeviceDriverSetMotorInit();
 }
 
-//Prueba
-void loop() {
-  motorControl.allMotorsRunning(true);
+void loop()
+{
+  // Prueba --- v
+  motorControl.startMotor();
   motorControl.leftMotorsForward(true, 1);
   motorControl.rightMotorsForward(false, 1);
+  // Prueba --- ^
 }
