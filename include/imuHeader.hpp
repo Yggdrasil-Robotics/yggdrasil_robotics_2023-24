@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include "MPU6050.h"
 
 class MPU6050_getdata {
 private:

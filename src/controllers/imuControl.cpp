@@ -14,7 +14,6 @@ bool MPU6050_getdata::MPU6050Init() {
 
   Wire.begin();
 
-  // Make sure slave device is online
   do {
     chipID = accelgyro.getDeviceID();
     attempts++;
@@ -35,12 +34,10 @@ bool MPU6050_getdata::MPU6050Init() {
 void MPU6050_getdata::MPU6050Calibration() {
   uint8_t totalSamples = 100;
 
-  for (int i = 0; i < totalSamples; i++)
-  {
+  for (int i = 0; i < totalSamples; i++) {
     gyroscopeOffset += accelgyro.getRotationZ();
   }
 
-  // Calculate gyroscope displacement
   gyroscopeOffset /= totalSamples;
 }
 
@@ -50,7 +47,7 @@ float MPU6050_getdata::MPU6050GetEulerAngles() {
 
   differentialTime = (actualTime - lastTime) / 1000.0;
   lastTime = actualTime;
-  // Z axis angular velocity
+
   actualAngle = -(accelgyro.getRotationZ() - gyroscopeOffset) / 131.0 * differentialTime;
 
   // Delete noise

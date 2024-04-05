@@ -41,15 +41,23 @@ void motorController::allMotorsStraightLine(boolean forward, uint8_t speed) {
 }
 
 void  motorController::lineTrackMode(int direction) {
-  if(direction == 0) {
-      leftMotorsForward(false, 80);
-      rightMotorsForward(true, 80);
-    } else if(direction == 1) {
+  switch (direction) {
+    case 0:
+      leftMotorsForward(false, 100);
+      rightMotorsForward(true, 85);
+      break;
+    
+    case 1:
       allMotorsStraightLine(true, 100);
-    } else if(direction == 2) {
-      leftMotorsForward(true, 80);
-      rightMotorsForward(false, 80);
-    } else {
+      break;
+    
+    case 2:
+      leftMotorsForward(true, 85);
+      rightMotorsForward(false, 100);
+      break;
+    
+    default:
       stopMotor();
-    }
+      break;
+  }
 }
