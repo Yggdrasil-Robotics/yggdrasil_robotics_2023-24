@@ -1,7 +1,6 @@
 #include <Arduino.h>
 
-class MPU6050_getdata
-{
+class MPU6050_getdata {
 private:
   // float pith, roll, yaw;
   unsigned long lastTime = 0;

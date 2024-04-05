@@ -1,7 +1,6 @@
 #include <Arduino.h>
 
-class lineTracker
-{
+class lineTracker {
 private:
 #define leftTrackingCameraPin A2
 #define mediumTrackingCameraPin A1
@@ -13,4 +12,6 @@ public:
   float getLeftTrackingCameraMeasure();
   float getMediumTrackingCameraMeasure();
   float getRightTrackingCameraMeasure();
+
+  int trackingMode(lineTracker lineTrack);
 };

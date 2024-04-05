@@ -1,7 +1,6 @@
 #include <Arduino.h>
 
-class motorController
-{
+class motorController {
 private:
 #define minSpeed 75
 #define maxSpeed 255
@@ -28,6 +27,4 @@ public:
   void rightMotorsForward(boolean forward, uint8_t speed);
   void leftMotorsForward(boolean forward, uint8_t speed);
   void allMotorsStraightLine(boolean forward, uint8_t speed);
-
-  // void proportionalDeviationControl();
 };
