@@ -16,9 +16,10 @@ bool MPU6050_getdata::MPU6050Init() {
 
   do {
     chipID = accelgyro.getDeviceID();
+    Serial.println(chipID);
     attempts++;
 
-    if (attempts > 1000) {
+    if (attempts > 10) {
       Serial.println("Connection error with the imu");
       return false;
     }

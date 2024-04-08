@@ -1,17 +1,21 @@
 #include "motorHeader.hpp"
 #include "lineTrackingHeader.hpp"
-#include "imuHeader.hpp"
-#include "MPU6050.h"
+#include "colorSensorHeader.hpp"
 
 motorController motorControl;
 lineTracker lineTrack;
+colorSensor colorCheck;
 
 void setup() {
   motorControl.DeviceDriverSetMotorInit();
   lineTrack.lineTrackerInit();
+
+  motorControl.startMotor();
 }
 
 void loop() {
-  motorControl.startMotor();
+  if(colorCheck.checkStopColor()) {
+    motorControl.stopMotor();
+  }
   motorControl.lineTrackMode(lineTrack.trackingMode(lineTrack));
 }
