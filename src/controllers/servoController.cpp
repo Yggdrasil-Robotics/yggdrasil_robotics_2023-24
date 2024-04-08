@@ -10,7 +10,7 @@ void servoMotor::servoMotorInit(unsigned int Position_angle) {
   delay(500);
 }
 
-void servoMotor::DeviceDriverSet_Servo_control(unsigned int Position_angle) {
+void servoMotor::servoPosition(unsigned int Position_angle) {
   myservo.attach(PIN_Servo_z);
   myservo.write(Position_angle);
   delay(100);

@@ -15,24 +15,28 @@ void setup() {
   lineTrack.lineTrackerInit();
   sonicSensor.ultrasonicSensorInit();
   servo.servoMotorInit(90);
+  Serial.begin(9600);
 }
 
 void loop() {
   int back = 170;
+
   for(int i = 0; i <= 360; i += 10) {
     if(i <= 180) {
-      servo.DeviceDriverSet_Servo_control(i);
+      servo.servoPosition(i);
     } else {
-      servo.DeviceDriverSet_Servo_control(back);
+      servo.servoPosition(back);
       back -= 10;
     }
 
     if(sonicSensor.getDistance() < 35 || colorCheck.checkStopColor()) {
       motorControl.stopMotor();
+      
+      while(sonicSensor.getDistance() < 35) {}
+      servo.servoMotorInit(90);
     } else {
       motorControl.startMotor();
+      motorControl.lineTrackMode(lineTrack.trackingMode(lineTrack));
     }
-
-    motorControl.lineTrackMode(lineTrack.trackingMode(lineTrack));
   }
 }
