@@ -15,7 +15,8 @@ void setup() {
   lineTrack.lineTrackerInit();
   sonicSensor.ultrasonicSensorInit();
   servo.servoMotorInit(90);
-  Serial.begin(9600);
+
+  while(digitalRead(23) == LOW) {} // waiting until the blocker is released
 }
 
 void loop() {
