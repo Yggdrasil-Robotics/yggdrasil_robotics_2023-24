@@ -6,8 +6,8 @@ void ultrasonicSensor::ultrasonicSensorInit() {
 }
 
 int ultrasonicSensor::getDistance() {
-  digitalWrite(TRIG_PIN, LOW);
-  digitalWrite(TRIG_PIN, HIGH);
-  digitalWrite(TRIG_PIN, LOW);
-  return ((unsigned int)pulseIn(ECHO_PIN, HIGH) / 58);
+    digitalWrite(TRIG_PIN, LOW);
+    digitalWrite(TRIG_PIN, HIGH);
+    digitalWrite(TRIG_PIN, LOW);
+    return ((unsigned int)pulseIn(ECHO_PIN, HIGH) / 58);
 }

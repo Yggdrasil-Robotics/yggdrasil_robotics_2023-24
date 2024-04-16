@@ -2,9 +2,9 @@
 
 class servoMotor {
     private:
-    #define PIN_Servo_z 10
+        const uint8_t PIN_Servo_z = 10;
 
     public:
-    void servoMotorInit(unsigned int Position_angle);
-    void servoPosition(unsigned int Position_angle);
+        void servoMotorInit(unsigned int Position_angle);
+        void servoPosition(unsigned int Position_angle);
 };

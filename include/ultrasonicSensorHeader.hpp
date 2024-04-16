@@ -2,10 +2,10 @@
 
 class ultrasonicSensor {
     private:
-    #define TRIG_PIN 13
-    #define ECHO_PIN 12
+        const uint8_t TRIG_PIN = 13;
+        const uint8_t ECHO_PIN = 12;
     
     public:
-    void ultrasonicSensorInit();
-    int getDistance();
+        void ultrasonicSensorInit();
+        int getDistance();
 };
